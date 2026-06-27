@@ -18,5 +18,5 @@ EOT
 if $RELEVANT; then
   printf "\n→ 检测到文档变更，运行一致性检查...\n"
   DIR=$(cd "$(dirname "$0")/.." && pwd)
-  sh "$DIR/scripts/check.sh"
+  bash "$DIR/scripts/check.sh"
 fi

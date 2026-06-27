@@ -1,4 +1,4 @@
-> 版本: `v1.0.0`
+> 版本: `v1.0.1`
 
 # 给AI看的安装部署指令
 
@@ -81,9 +81,16 @@ git config core.hooksPath ./<harness>/scripts
 
 - 不存在 → 创建，写入规则
 - 已存在 → 检查是否已有 Harness 入口规则、路径是否指向当前 `<harness>`
-  - 规则缺失 → 追加到文件顶部
-  - 路径错误 → 修正路径
-  - 已有且正确 → 跳过
+    - 规则缺失 → 追加到文件顶部
+    - 路径错误 → 修正路径
+    - 已有且正确 → 跳过
+
+同时检查项目根目录 `CLAUDE.md`（Claude Code 不原生读取 AGENTS.md，需通过 CLAUDE.md 导入）：
+
+- 不存在 → 创建，写入 `@AGENTS.md`
+- 已存在 → 检查是否已有 `@AGENTS.md` 导入
+    - 缺失 → 追加到文件顶部
+    - 已有 → 跳过
 
 ```markdown
 # 项目规则
@@ -119,14 +126,11 @@ git config core.hooksPath ./<harness>/scripts
 ## 验证安装
 
 ```bash
-# Linux / macOS
-sh ./<harness>/scripts/check.sh
-
-# Windows（Git Bash）
-bash -c "sh ./<harness>/scripts/check.sh"
+# 所有平台（统一使用 bash）
+bash ./<harness>/scripts/check.sh
 
 # Windows（WSL）
-wsl sh ./<harness>/scripts/check.sh
+wsl bash ./<harness>/scripts/check.sh
 ```
 
 若 4 项检查全部通过，告知用户安装成功。若有失败项，根据输出修复。

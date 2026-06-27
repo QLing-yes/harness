@@ -34,9 +34,8 @@
 
 **留下了：**
 - check.sh 跨环境运行方式：
-  - Linux/macOS：`sh ./harness/scripts/check.sh`
-  - Windows（Git Bash）：先 `Get-Command bash` 找路径，再 `bash -c "sh ./harness/scripts/check.sh"`
-  - Windows（WSL）：`wsl sh ./harness/scripts/check.sh`
+  - 所有平台：`bash ./harness/scripts/check.sh`
+  - Windows（WSL）：`wsl bash ./harness/scripts/check.sh`
 
 **遇到了：**
 TASK-013 归档记录与实际文件不一致 — 已修复并沉淀为 feedback.md 和 tasks.md 归档格式新规，添加"验证：回归文件确认变更已生效"

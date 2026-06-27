@@ -60,7 +60,7 @@
 ### 机械检查
 
 ```bash
-sh ./scripts/check.sh
+bash ./scripts/check.sh
 ```
 
 | 检查 | 内容 |
@@ -96,7 +96,7 @@ sh ./scripts/check.sh
 - `[可选]` — 锦上添花
 
 最终等待用户确认操作。
-所有操作完成后运行 ./harness/scripts/check.sh 检查项目状态。
+所有操作完成后运行 bash ./harness/scripts/check.sh 检查项目状态。
 
 ## → 下一步
 

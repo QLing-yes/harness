@@ -1,4 +1,4 @@
-> 版本: `v1.0.0`
+> 版本: `v1.0.1`
 >
 > [→ 升级版本](https://github.com/QLing-yes/harness/blob/main/INSTALL.md)
 
@@ -13,6 +13,8 @@
 Harness-Engineering 定义了一套结构化 Markdown 文件（AGENTS → SESSION → tasks → specs / rules / ...），AI 启动时按固定链路逐级读取，确保每次会话都有完整的上下文、明确的目标、统一的规范。
 
 解决的核心问题：AI 编程助手"忘了上次做到哪""每次都要重新交代背景""规范靠口头约定"。
+
+业界将其归纳为「Agent = Model + Harness」— 模型是引擎，Harness 是马具，约束与引导 AI 行为。
 
 ## 智能体读取链路
 

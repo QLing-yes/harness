@@ -43,7 +43,7 @@
 ### 机械检查
 
 ```bash
-sh ./scripts/check.sh
+bash ./scripts/check.sh
 ```
 
 | 检查 | 内容 |

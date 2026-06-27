@@ -1,13 +1,13 @@
 #!/bin/sh
 # scripts/check.sh — 一致性检查
-# 用法：sh scripts/check.sh
+# 用法：bash scripts/check.sh
 # 返回：0（全通过）或 1（有失败）
-# 支持平台：Linux / macOS / BSD（POSIX sh，无需 bash）
+# 支持平台：Linux / macOS / Windows（Git Bash）
 # CI 验证：GitHub Actions ubuntu-latest + macos-latest
 #
 # Windows 运行方式：
-#   Git Bash：bash -c "sh scripts/check.sh"
-#   WSL：     wsl sh scripts/check.sh
+#   Git Bash：bash scripts/check.sh
+#   WSL：     wsl bash scripts/check.sh
 
 set -eu
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
