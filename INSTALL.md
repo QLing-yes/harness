@@ -1,4 +1,4 @@
-> 版本: `v1.0.1`
+> 版本: `v1.0.11`
 
 # 给AI看的安装部署指令
 
@@ -12,7 +12,7 @@
 
 先自动搜索项目中已存在的 Harness 目录：
 
-1. 快速定位：搜索同时存在 `README.md` + `scripts/check.sh` 的目录
+1. 快速定位：搜索存在 `README.md` 的目录
 2. 内容确认：读取该目录的 `README.md`，确认顶部有 `> 版本:` 且标题含 `Harness-Engineering`
 
 - **找到** → 向用户确认路径后，跳到第二步
@@ -26,7 +26,7 @@
 
 读取 `<harness>/README.md` 顶部版本号，与本文档顶部版本号对比。
 
-- **版本一致** → 跳至 [验证安装](#验证安装)
+- **版本一致** → 告知用户版本一致。
 - **版本低于本文档** → 跳至 [从旧版升级](#从旧版升级)
 - **版本高于本文档** → 你手里的 INSTALL.md 可能是旧版，告知用户并从仓库拉取最新
 
@@ -55,27 +55,7 @@ rm -rf .git .gitignore
 2. Code → Download ZIP
 3. 解压后将 `template/` 内所有文件复制到 `<harness>/`
 
-### 安装后：引导用户填写文件
-
-安装完成后，提醒用户：AI 可带着问题分析完整项目，理解业务后引导填写文件内容（而非让用户自己盲填）。
-
-需要修改的文件：
-
-| 文件 | 待填写内容 |
-|------|-----------|
-| AGENTS.md | 项目描述、技术栈、铁律 |
-| SESSION.md | 当前目标、最近进展、项目画像 |
-| specs.md | 核心目标、验收标准、硬约束 |
-| rules.md | 编码原则、命名约定、禁止项 |
-| tasks.md | 当前任务拆解 |
-
-> DECISIONS / PROMPTS / feedback 按需填写，建议 AI 在会话中主动填写。
-
-填写完毕后，帮用户执行：
-
-```bash
-git config core.hooksPath ./<harness>/scripts
-```
+### 安装后
 
 并引导用户创建项目根目录 `AGENTS.md`：
 
@@ -117,20 +97,12 @@ git config core.hooksPath ./<harness>/scripts
 
 5. 生成升级清单展示给用户
 6. 用户确认后，将用户自定义内容合并到新版文件
-7. 执行验证，若失败分析输出给出修复方案，修复后重新验证；无法修复则回滚 `<harness>_backup/`
+7. 对 AI 助手说 **"分析"** 执行验证，若失败分析输出给出修复方案，修复后重新验证；无法修复则回滚 `<harness>_backup/`
 8. 对比 `<harness>_backup/` 与新版目录，确认迁移完整、版本号已更新
 9. 向用户确认无遗留问题后，删除 `<harness>_backup/`
 
 ---
 
-## 验证安装
+## 最终收尾
 
-```bash
-# 所有平台（统一使用 bash）
-bash ./<harness>/scripts/check.sh
-
-# Windows（WSL）
-wsl bash ./<harness>/scripts/check.sh
-```
-
-若 4 项检查全部通过，告知用户安装成功。若有失败项，根据输出修复。
+执行一次  [<harness>/AGENTS.md](<harness>/AGENTS.md) 中的“分析”

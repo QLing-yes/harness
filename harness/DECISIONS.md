@@ -15,52 +15,7 @@
 
 ---
 
-## DEC-001: C1 用正则过滤 DONE 状态
-
-**日期：** 2026-06-26
-**状态：** 生效中
-**决定了什么：**
-C1 进行中任务统计从 `grep -c '^#### TASK-'` 改为 `grep -cE '\*\*状态：\*\* (IN_PROGRESS|BLOCKED)'`，排除 DONE 任务。
-
-**为什么：**
-原逻辑按标题统计，DONE 任务留在进行中区时会被误算。状态字段才是准确信号。
-
-**影响：**
-→ 见 [check.sh](./scripts/check.sh) C1 段
-
----
-
-## DEC-002: C4 用 POSIX find -mtime 替代 stat
-
-**日期：** 2026-06-26
-**状态：** 生效中
-**决定了什么：**
-C4 SESSION.md 新鲜度检查从 `stat -f/-c` + `date +%s` 计算天数改为 `find "$ROOT/SESSION.md" -mtime +3`。
-
-**为什么：**
-`stat -c` 非 POSIX，FreeBSD/OpenBSD 不可用。`find -mtime` 是 POSIX 原生命令，Linux/macOS/BSD 全平台兼容。
-
-**影响：**
-→ 见 [check.sh](./scripts/check.sh) C4 段
-
----
-
-## DEC-003: CI 加 macOS 矩阵验证跨平台
-
-**日期：** 2026-06-26
-**状态：** 生效中
-**决定了什么：**
-GitHub Actions 从单一 `ubuntu-latest` 改为 `strategy.matrix.os: [ubuntu-latest, macos-latest]`。
-
-**为什么：**
-check.sh 刚做了跨平台修复，需要矩阵验证才能确保 Linux 和 BSD 系全部通过。
-
-**影响：**
-→ 见 [check.yml](../.github/workflows/check.yml)
-
----
-
-## DEC-004: 模板示例领域无关化
+## DEC-001: 模板示例领域无关化
 
 **日期：** 2026-06-26
 **状态：** 生效中

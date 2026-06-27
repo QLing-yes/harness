@@ -31,7 +31,7 @@
 
 ### 结构规则
 
-- 每个无子目录的目录下必须有 INDEX.md，否则 check.sh 会报错 [AUTO]
+- 每个无子目录的目录下必须有 INDEX.md [AUTO]
 - 新增依赖前必须在 [决策记录](./DECISIONS.md) 记录原因 [MANUAL]
 - outputs/ 有文件时必须更新 [产出索引](./outputs/INDEX.md) [AUTO]
 

@@ -31,7 +31,7 @@
 
 ### 结构规则
 
-- {{规则 1}} [AUTO] — {{例：每个没有子目录的目录下必须有 INDEX.md，否则 scripts/check.sh 会报错}}
+- {{规则 1}} [AUTO] — {{例：每个没有子目录的目录下必须有 INDEX.md}}
 - {{规则 2}} [MANUAL] — {{例：新增依赖前必须在 [决策记录](./DECISIONS.md) 记录原因}}
 - {{规则 3}} [AUTO] — {{例：outputs/ 有文件时必须更新 [产出索引](./outputs/INDEX.md)}}
 
