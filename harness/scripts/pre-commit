@@ -1,0 +1,22 @@
+#!/bin/sh
+# scripts/pre-commit
+# 启用：git config core.hooksPath ./scripts
+
+CHANGED=$(git diff --cached --name-only 2>/dev/null || true)
+[ -z "$CHANGED" ] && exit 0
+
+RELEVANT=false
+while IFS= read -r F; do
+  case "$F" in
+    *.md)
+      RELEVANT=true; break ;;
+  esac
+done <<EOT
+$CHANGED
+EOT
+
+if $RELEVANT; then
+  printf "\n→ 检测到文档变更，运行一致性检查...\n"
+  DIR=$(cd "$(dirname "$0")/.." && pwd)
+  sh "$DIR/scripts/check.sh"
+fi

@@ -1,0 +1,62 @@
+# 当前会话状态
+
+> ⚠️ 每次与新 AI 开始对话时，先把本文内容贴进去（或附上文件）。
+> 每次会话结束前更新，让下次冷启动不需要重新解释背景。
+
+## ← 前置
+
+你已从 [AGENTS](./AGENTS.md) 拿到身份和铁律。
+
+## ● 当前
+
+**更新时间：** 2026-06-27
+
+### 本次目标
+
+持续优化 — 脚本跨平台、CI 全绿、规范严密
+
+- [x] 填写 harness/ 下 6 个核心文件的 {{}} 占位符
+- [x] 确保 check.sh 一致性检查通过
+- [x] TASK-013 执行偏差修复（PROMPTS.md 日期 + DEC-005→004 + template/rules.md 扩至 5 条原则）
+- [x] 全面分析项目（32 文件逐读 + check.sh 手动验证 + 发现 6 个问题）
+
+### 上次停在
+
+**完成了：**
+- TASK-013 执行偏差修复 — 3 项遗漏补全：
+  - PROMPTS.md 2 处 `{{YYYY-MM-DD}}` → "未验证"
+  - DEC-005 重编号为 DEC-004
+  - template/rules.md 第 4 条占位符原则 → "改动带关联"变为第 5 条
+- 全面分析项目 — 发现 6 个问题（1 必须 + 5 建议），3 个已修复
+- 历史（前次会话）：
+  - 6 个核心治理文件填写 {{}} 占位符
+  - check.sh C1/C4 修复、CI 矩阵、版本管理、模板领域无关化、INSTALL.md 等
+
+**留下了：**
+- check.sh 跨环境运行方式：
+  - Linux/macOS：`sh ./harness/scripts/check.sh`
+  - Windows（Git Bash）：先 `Get-Command bash` 找路径，再 `bash -c "sh ./harness/scripts/check.sh"`
+  - Windows（WSL）：`wsl sh ./harness/scripts/check.sh`
+
+**遇到了：**
+TASK-013 归档记录与实际文件不一致 — 已修复并沉淀为 feedback.md 和 tasks.md 归档格式新规，添加"验证：回归文件确认变更已生效"
+
+### 临时备忘
+
+*无*
+
+### 项目画像
+
+> AI 每次新会话快速理解项目本质，避免方向偏差。
+
+| 维度 | 描述 |
+|------|------|
+| **项目是什么** | Harness-Engineering — AI 自治理框架，用 Markdown 文件链让 AI 自动获取上下文、遵守规范、自我检查 |
+| **领域** | 通用 — 不绑定任何语言/技术栈/业务 |
+| **角色** | 框架开发者 — dogfooding：用 Harness 管理 Harness 自身 |
+| **核心约束** | template/ 与 harness/ 双向同步；链路不可跳过；check.sh 必须通过 |
+
+## → 下一步
+
+读 [任务追踪](./tasks.md)
+
