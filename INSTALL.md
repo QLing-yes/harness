@@ -1,4 +1,4 @@
-> 版本: `v1.0.11`
+> 版本: `v1.0.13`
 
 # 给AI看的安装部署指令
 
@@ -47,6 +47,12 @@ git sparse-checkout set template && mv template/* . && rmdir template
 rm -rf .git .gitignore
 ```
 
+> **Windows PowerShell 用户**：上述 `mv`/`rmdir`/`rm -rf` 需替换为：
+> ```powershell
+> git sparse-checkout set template; Move-Item template\* . -Force; Remove-Item template -Recurse -Force
+> Remove-Item -Recurse -Force .git, .gitignore
+> ```
+
 ### 方式二：无 git / 离线
 
 告知用户：
@@ -91,7 +97,7 @@ rm -rf .git .gitignore
 
    | 情况 | 处理 |
    |------|------|
-   | 新老都有 | diff 对比，固定内容以新版为准，用户自定义内容保留 |
+   | 新老都有 | 以新版结构为基底，固定内容以新版为准，将用户自定义内容填入新版（不保留旧版已废弃的结构） |
    | 新版独有 | 保留（模板新增文件） |
    | 旧版独有 | 保留（用户自定义文件） |
 
@@ -100,6 +106,7 @@ rm -rf .git .gitignore
 7. 对 AI 助手说 **"分析"** 执行验证，若失败分析输出给出修复方案，修复后重新验证；无法修复则回滚 `<harness>_backup/`
 8. 对比 `<harness>_backup/` 与新版目录，确认迁移完整、版本号已更新
 9. 向用户确认无遗留问题后，删除 `<harness>_backup/`
+10. 检查项目根目录 `CLAUDE.md`（同首次安装"安装后"的 CLAUDE.md 处理流程）
 
 ---
 

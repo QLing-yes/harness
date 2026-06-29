@@ -1,4 +1,4 @@
-> 版本: `v1.0.11`
+> 版本: `v1.0.13`
 >
 > [→ 升级版本](https://github.com/QLing-yes/harness/blob/main/INSTALL.md)
 
