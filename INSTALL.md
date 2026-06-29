@@ -1,4 +1,4 @@
-> 版本: `v1.0.15`
+> 版本: `v1.0.16`
 
 # 给AI看的安装部署指令
 
@@ -48,6 +48,8 @@ cd <harness>
 git sparse-checkout set template && mv template/* . && rmdir template
 rm -rf .git .gitignore
 ```
+
+> HTTPS 不可用时，用 SSH 备用：`git clone --depth=1 --filter=blob:none --sparse git@github.com:QLing-yes/harness.git <harness>`
 
 > **Windows PowerShell 用户**：上述 `mv`/`rmdir`/`rm -rf` 需替换为：
 > ```powershell
@@ -99,7 +101,7 @@ rm -rf .git .gitignore
 
    | 情况 | 处理 |
    |------|------|
-   | 新老都有 | 以新版结构为基底，固定内容以新版为准，将用户自定义内容填入新版（不保留旧版已废弃的结构） |
+   | 新老都有 | ①读取新版文件结构 → ②读取旧版文件中的用户自定义内容 → ③以新版为基底，将用户内容填入。**禁止直接用旧版覆盖新版** |
    | 新版独有 | 保留（模板新增文件） |
    | 旧版独有 | 保留（用户自定义文件） |
 
