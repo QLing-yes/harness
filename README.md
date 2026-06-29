@@ -3,12 +3,7 @@
 > AI 编程助手的"自动驾驶系统" — 结构化文件链路 + 机械检查 + 自进化闭环
 > 模板结构详见 [template/README.md](./template/README.md)
 
-## 🚀 [→ 快速接入/安装](./INSTALL.md)
-
-直接复制这个AI就行了
-```
-按照 https://github.com/QLing-yes/harness/blob/main/INSTALL.md 内容操作，直接读取原始文件（绕过页面缓存 / CDN）。
-```
+## 🚀 [→ 快速接入/安装](./INSTALL.md)（复制文件内容给AI操作）
 
 ## 智能体读取链路
 
