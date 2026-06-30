@@ -1,6 +1,6 @@
 # Harness-Engineering
 
-> AI 编程助手的"自动驾驶系统" — 结构化文件链路 + 机械检查 + 自进化闭环
+> AI 编程助手的"自动驾驶系统" — 结构化文件链路 + 机械检查 + hooks钩子
 > 模板结构详见 [template/README.md](./template/README.md)
 
 ## 🚀 [→ 快速接入/安装](./INSTALL.md)（复制文件`原始`内容给AI操作）
@@ -11,10 +11,13 @@
 flowchart TD
     START["🟢 智能体启动"] --> A
 
-    A["📄 AGENTS<br/>← 前置：无<br/>● 身份 + 铁律 + 文件清单<br/>→ 下一步：读 SESSION"]
-    A --> B
+    A["📄 AGENTS<br/>← 前置：无<br/>● 身份 + 铁律 + 文件清单<br/>→ 下一步：读 hooks"]
+    A --> HK
 
-    B["📄 SESSION<br/>← 前置：已读 AGENTS<br/>● 本次目标 + 断点 + 备忘<br/>→ 下一步：读 tasks"]
+    HK["📄 hooks<br/>← 前置：已读 AGENTS<br/>● 条件触发行为<br/>→ 下一步：读 SESSION"]
+    HK --> B
+
+    B["📄 SESSION<br/>← 前置：已读 hooks<br/>● 本次目标 + 断点 + 备忘<br/>→ 下一步：读 tasks"]
     B --> C
 
     C["📄 tasks<br/>← 前置：已读 SESSION<br/>● 任务详情 + 待办 + 归档<br/>→ 下一步：按条件分支"]
@@ -44,6 +47,7 @@ flowchart TD
     EXEC["⚡ 执行任务"]
 
     style A fill:#1a1a2e,stroke:#e94560,color:#fff
+    style HK fill:#1a1a2e,stroke:#533483,color:#fff
     style B fill:#1a1a2e,stroke:#0f3460,color:#fff
     style C fill:#1a1a2e,stroke:#16213e,color:#fff
     style D fill:#16213e,stroke:#533483,color:#fff
@@ -89,5 +93,5 @@ AI 编程助手每次对话从零开始 — 忘了上次做到哪、不知道项
 |------|------|
 | **渐进式读取** | 文件链逐级引导，AI 不预读、不跳步，token 只花在刀口上 |
 | **模板实例共进化** | template 保持通用，harness dogfooding 验证并反哺 |
-| **自进化闭环** | 说"分析"触发 7 步自检，项目越用越规范 |
+| **hooks 钩子** | 条件满足时触发指定动作 |
 | **零依赖** | 只需 Markdown + Shell |
