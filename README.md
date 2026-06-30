@@ -1,6 +1,6 @@
 # Harness-Engineering
 
-> AI 编程助手的"自动驾驶系统" — 结构化文件链路 + 机械检查 + hooks钩子
+> AI 助手的"自动驾驶系统" — 结构化文件链路 + 机械检查 + hooks钩子
 > 模板结构详见 [template/README.md](./template/README.md)
 
 ## 🚀 [→ 快速接入/安装](./INSTALL.md)（复制文件`原始`内容给AI操作）
@@ -61,7 +61,7 @@ flowchart TD
 
 ## 这是什么
 
-Harness-Engineering 是一个 AI 自治理框架。用一套 Markdown 文件让 AI 编程助手在每次会话中自动获取项目上下文、遵守规范、自我检查、持续进化 — 不再每次从零开始。
+Harness-Engineering 是一个 AI 自治理框架。用一套 Markdown 文件让 AI 助手在每次会话中自动获取项目上下文、遵守规范、自我检查、持续进化 — 不再每次从零开始。
 
 ## 本项目
 
@@ -85,7 +85,7 @@ flowchart TD
 
 ## 解决什么问题
 
-AI 编程助手每次对话从零开始 — 忘了上次做到哪、不知道项目规范、改了文件不检查。Harness 让 AI **自己读、自己守规矩、自己检查**。
+AI 助手每次对话从零开始 — 忘了上次做到哪、不知道项目规范、改了文件不检查。Harness 让 AI **自己读、自己守规矩、自己检查**。
 
 ## 亮点
 

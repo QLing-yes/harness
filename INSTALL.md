@@ -1,4 +1,4 @@
-> 版本: `v1.0.16`
+> 版本: `v1.0.21`
 
 # 给AI看的安装部署指令
 
@@ -116,4 +116,4 @@ rm -rf .git .gitignore
 
 ## 最终收尾
 
-执行一次  [<harness>/AGENTS.md](<harness>/AGENTS.md) 中的“分析”
+执行一次  [<harness>/hooks.md](<harness>/hooks.md) 中的“分析”

@@ -1,4 +1,4 @@
-> 版本: `v1.0.16`
+> 版本: `v1.0.21`
 >
 > [→ 升级版本](https://github.com/QLing-yes/harness/blob/main/INSTALL.md)
 
@@ -6,13 +6,13 @@
 
 # [Harness-Engineering](https://github.com/QLing-yes/harness)
 
-> 给 AI 编程助手用的自治理框架 — 通过逐级引导的文件链路，让 AI 在正确的上下文里做正确的事
+> 给 AI 助手用的自治理框架 — 通过逐级引导的文件链路，让 AI 在正确的上下文里做正确的事
 
 ## 这是什么
 
 Harness-Engineering 定义了一套结构化 Markdown 文件（AGENTS → hooks → SESSION → tasks → specs / rules / ...），AI 启动时按固定链路逐级读取，确保每次会话都有完整的上下文、明确的目标、统一的规范。
 
-解决的核心问题：AI 编程助手"忘了上次做到哪""每次都要重新交代背景""规范靠口头约定"。
+解决的核心问题：AI 助手"忘了上次做到哪""每次都要重新交代背景""规范靠口头约定"。
 
 业界将其归纳为「Agent = Model + Harness」— 模型是引擎，Harness 是马具，约束与引导 AI 行为。
 
@@ -74,7 +74,7 @@ flowchart TD
 
 | 文件 | 作用 |
 |------|------|
-| [AGENTS](./AGENTS.md) | AI 入口：身份、铁律、文件清单、检查项、hooks 触发 |
+| [AGENTS](./AGENTS.md) | AI 入口：身份、铁律、文件清单、检查项、hooks |
 | [会话状态](./SESSION.md) | 本次会话目标、断点、遗留问题、临时备忘 |
 | [任务追踪](./tasks.md) | 任务清单：进行中 / 待办 / 已归档，含分支跳转指引 |
 | [编码规范](./rules.md) | 原则、命名、结构规则、禁止项、已知例外 |

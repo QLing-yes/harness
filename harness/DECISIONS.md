@@ -15,6 +15,39 @@
 
 ---
 
+## DEC-006: C4 收紧为 1 天 + 新增「会话启动检查」hook + 「上次分析时间」移入 hooks.md
+
+**日期：** 2026-06-30
+**状态：** 生效中
+**决定了什么：**
+1. C4 从「SESSION.md 超过 3 天未更新」改为「上次分析时间距今 > 1 天」
+2. 新增「会话启动检查」hook — 读 SESSION.md 后自动检查
+3. 「上次分析时间」字段从 SESSION.md 移至 hooks.md「分析」hook 顶部，引用路径同步调整
+
+**为什么：**
+分析时间更贴近 hook 触发逻辑，放在 hooks.md 内聚性更好；SESSION.md 只保留会话上下文（目标/断点/备忘），职责单一。
+
+**影响：**
+→ 见 [hooks.md](./hooks.md) 分析 hook + 会话启动检查 + C4
+
+---
+
+## DEC-005: template/hooks.md 补 ● 当前 结构 + SESSION.md 移除「更新时间」
+
+**日期：** 2026-06-30
+**状态：** 生效中（DEC-006 取代 SESSION.md 部分）
+**决定了什么：**
+1. template/hooks.md 补上标准化 `## ● 当前` 锚点
+2. template + harness 的 SESSION.md 移除无 hook 触发的「更新时间」字段
+
+**为什么：**
+hooks.md 是 10 个 template 文件中唯一缺失 ● 当前 的；「更新时间」缺少 hook 触发，纯靠自觉的字段属于噪音。
+
+**影响：**
+→ 见 [template/hooks.md](../template/hooks.md) + [SESSION.md](./SESSION.md)
+
+---
+
 ## DEC-001: 模板示例领域无关化
 
 **日期：** 2026-06-26
@@ -57,6 +90,22 @@ template 的铁律是 4 条（3 占位符 + 1 固定「禁止预读」），harn
 
 **影响：**
 → 见 [INSTALL.md](../INSTALL.md) 升级流程第 4/10 步 + 首次安装 git clone 节
+
+---
+
+## DEC-004: 模板与实例同步方向规则
+
+**日期：** 2026-06-30
+**状态：** 生效中
+**决定了什么：**
+模板与实例的同步是单向强制，非双向。template 中固定内容 → harness 必须同步；harness 独有内容不必反哺 template；template 改动时 harness 必须同步。
+
+**为什么：**
+之前的描述"同时修改对应之一份，不得仅改一端"含糊，易误解为双向对等。实际 template 是源头，harness 是下游实例，harness 可以有自己的扩展（如"自治理"hook）。
+
+**影响：**
+→ 见 [编码规范](./rules.md) 原则 #2
+→ 见 [hooks](./hooks.md) 自治理 hook
 
 ---
 
