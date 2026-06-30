@@ -41,10 +41,6 @@
 | [产出索引](./outputs/INDEX.md) | 产出索引 | 查看成果时 |
 | [hooks](./hooks.md) | 条件触发行为 | 下一步 |
 
-### 自进化
-
-> 条件触发行为 → 见 [hooks](./hooks.md)
-
 ## → 下一步
 
 读 [hooks](./hooks.md)
